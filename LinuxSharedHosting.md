@@ -16,22 +16,34 @@ pico /etc/ssh/sshd_config
 ## Configure Timezones
 
 ## Symlink Pico
-`ln -sv /usr/bin/nano /usr/bin/pico`
+```Shell
+ln -sv /usr/bin/nano /usr/bin/pico
+```
 
 ## Configure Hostname
-`pico /etc/hosts
+```Shell
+pico /etc/hosts
 pico /etc/sysconfig/network
+```
+set
 HOSTNAME=myserver.domain.com
+```Shell
 hostname hostname.domain.com
-hostname
-/etc/init.d/network restart`
+hostname #to check
+/etc/init.d/network restart
+```
 
 ## Reboot
-`reboot`
+```Shell
+reboot
+```
 
 # Install cPanel if required
-`cd /home && curl -o latest -L https://securedownloads.cpanel.net/latest && sh latest`
-* Update License `/usr/local/cpanel/cpkeyclt`
+```Shell
+cd /home && curl -o latest -L https://securedownloads.cpanel.net/latest && sh latest
+# Update License 
+/usr/local/cpanel/cpkeyclt
+```
 ## Go through settings and updates
 ## Setup Apache as required
 ## Name server (Bind)
@@ -52,10 +64,17 @@ hostname
 ## Apache Symlink Protection
 ## 
 
-pico /etc/fstab
-no exec on temp
-/scripts/securetmp
 
+## Secure Temp
+```Shell
+pico /etc/fstab
+```
+set
+no exec on temp
+or run
+```Shell
+/scripts/securetmp
+```
 
 
 
@@ -65,15 +84,16 @@ install openVPN
 
 
 # Install CSF
-`cd /usr/src
+```Shell
+cd /usr/src
 rm -fv csf.tgz
 wget https://download.configserver.com/csf.tgz
 tar -xzf csf.tgz
 cd csf
 sh install.sh
-
 sh /usr/local/csf/bin/remove_apf_bfd.sh
-`
+```
+
 ## Configure it as needed
 ## Enable Passive mode for pureFTPd and open required ports
 
