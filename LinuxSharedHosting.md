@@ -4,9 +4,16 @@ Base configurations for linux servers
 # Setup environment
 
 ## Install Nano if it is not installed
+```Shell
+yum install nano
+```
+### Symlink Pico
+```Shell
+ln -sv /usr/bin/nano /usr/bin/pico
+```
 
 ## Configure SSH
-### Change Port / Disable Root login / ...etc.
+Change Port / Disable Root login / ...etc.
 ```Shell
 pico /etc/ssh/sshd_config  
 #port 22  
@@ -15,10 +22,6 @@ pico /etc/ssh/sshd_config
 
 ## Configure Timezones
 
-## Symlink Pico
-```Shell
-ln -sv /usr/bin/nano /usr/bin/pico
-```
 
 ## Configure Hostname
 ```Shell
@@ -44,24 +47,24 @@ cd /home && curl -o latest -L https://securedownloads.cpanel.net/latest && sh la
 # Update License 
 /usr/local/cpanel/cpkeyclt
 ```
-## Go through settings and updates
-## Setup Apache as required
-## Name server (Bind)
-## Configure nameservers domains
-## Configure Address Records for Nameservers & Hostname
-## FTP Server PureFTPd
-## Enable cPHulk
-## Install Common Set of Perl Modules
-## Enable 
-* DKIM
-* SPF
-* Thunderbird and Outlook autodiscover and autoconfig support
-* Email delivery retry time (15 Minutes)
-* Track email origin via X-Source email headers
-* Notify admin or reseller when disk quota reaches “warn” state
-## Disable Compilers
-## Install ClamAV 
-## Apache Symlink Protection
+* Go through settings and updates
+* Setup Apache as required
+* Name server (Bind)
+* Configure nameservers domains
+* Configure Address Records for Nameservers & Hostname
+* FTP Server PureFTPd
+* Enable cPHulk
+* Install Common Set of Perl Modules
+* Enable 
+** DKIM
+** SPF
+** Thunderbird and Outlook autodiscover and autoconfig support
+** Email delivery retry time (15 Minutes)
+** Track email origin via X-Source email headers
+** Notify admin or reseller when disk quota reaches “warn” state
+* Disable Compilers
+* Install ClamAV 
+* Apache Symlink Protection
 
 
 
