@@ -77,7 +77,6 @@ or run
 ```
 
 
-
 ## Configure MySQL
 /etc/my.cnf
 install openVPN
@@ -98,9 +97,6 @@ sh /usr/local/csf/bin/remove_apf_bfd.sh
 ## Enable Passive mode for pureFTPd and open required ports
 
 
-
-
-
 ## Configure Backp as per Policy
 ### Incremential daily, retain 2
 ### Weekly, retain 2
@@ -108,21 +104,7 @@ sh /usr/local/csf/bin/remove_apf_bfd.sh
 ### Off-site monthly, retain 2
 
 
-
-
-
-
-
-
-
-
-
-
 ## Don't Forget ioncube_encoder5_7.0.tar.gz
-
-
-
-
 
 
 # Update everything and restart
