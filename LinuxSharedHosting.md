@@ -7,9 +7,9 @@ Base configurations for linux servers
 
 ## Configure SSH
 ### Change Port / Disable Root login / ...etc.
-`pico /etc/ssh/sshd_config`
-`#port 22`
-`/etc/init.d/sshd reload`
+`pico /etc/ssh/sshd_config
+#port 22
+/etc/init.d/sshd reload`
 
 ## Configure Timezones
 
@@ -48,6 +48,7 @@ hostname
 ## Disable Compilers
 ## Install ClamAV 
 ## Apache Symlink Protection
+## 
 
 pico /etc/fstab
 no exec on temp
