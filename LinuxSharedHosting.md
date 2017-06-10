@@ -7,9 +7,11 @@ Base configurations for linux servers
 
 ## Configure SSH
 ### Change Port / Disable Root login / ...etc.
-`pico /etc/ssh/sshd_config  
+```bash
+pico /etc/ssh/sshd_config  
 #port 22  
-/etc/init.d/sshd reload`
+/etc/init.d/sshd reload
+```
 
 ## Configure Timezones
 
