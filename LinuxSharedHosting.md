@@ -98,8 +98,8 @@ sh /usr/local/csf/bin/remove_apf_bfd.sh
 * Configure it as needed
 * Enable Passive mode for pureFTPd and open required ports
 
-## Apache Configureations
-### Create HL.conf file
+# Apache Configureations
+## Create HL.conf file
 ```Shell
 pico /usr/local/apache/conf/HL.conf
 ```
@@ -123,7 +123,7 @@ RemoveHandler .cgi .pl .py .pyc .pyo .plx .ppl .perl
 
 Close the file
 
-### Include HL.conf in apache
+## Include HL.conf in apache
 ```Shell
 nano /usr/local/apache/conf/httpd.conf
 ```
@@ -132,6 +132,8 @@ and put the following at end of file
 Include "/usr/local/apache/conf/HL.conf
 ```
 
+
+# Setup Server Backup
 ## Configure Backup as per Policy
 * Incremential daily, retain 2
 * Weekly, retain 2
