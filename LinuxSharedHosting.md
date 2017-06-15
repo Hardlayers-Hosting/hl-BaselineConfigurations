@@ -110,12 +110,12 @@ pico /usr/local/apache/conf/HL.conf
 Place the following inside
 ```ApacheConf
 <Directory "/">
-	Options Indexes -ExecCGI -FollowSymLinks includes IncludesNOEXEC -SymLinksIfOwnerMatch 
+	Options +Indexes -ExecCGI -FollowSymLinks +includes +IncludesNOEXEC -SymLinksIfOwnerMatch 
 	AllowOverride AuthConfig Indexes Limit FileInfo Options=IncludesNOEXEC,Indexes,Includes,MultiViews
 </Directory>
 
 <Directory "/usr/local/apache/htdocs">
-	Options Includes -Indexes -FollowSymLinks -SymLinksIfOwnerMatch 
+	Options +Includes -Indexes -FollowSymLinks -SymLinksIfOwnerMatch 
 	AllowOverride None
 	Order deny,allow
 	Deny from all
