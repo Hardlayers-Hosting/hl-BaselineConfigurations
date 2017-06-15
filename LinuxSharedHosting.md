@@ -117,8 +117,8 @@ Place the following inside
 <Directory "/usr/local/apache/htdocs">
 	Options +Includes -Indexes -FollowSymLinks -SymLinksIfOwnerMatch 
 	AllowOverride None
-	Order deny,allow
-	Deny from all
+	Order allow,deny
+	Allow from all
 </Directory>
 
 RemoveHandler .cgi .pl .py .pyc .pyo .plx .ppl .perl
