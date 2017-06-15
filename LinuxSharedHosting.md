@@ -98,6 +98,39 @@ sh /usr/local/csf/bin/remove_apf_bfd.sh
 * Configure it as needed
 * Enable Passive mode for pureFTPd and open required ports
 
+## Apache Configureations
+### Create HL.conf file
+```Shell
+pico /usr/local/apache/conf/HL.conf
+```
+
+Place the following inside
+```ApacheConf
+<Directory "/">
+	Options Indexes -ExecCGI -FollowSymLinks includes IncludesNOEXEC -SymLinksIfOwnerMatch 
+	AllowOverride AuthConfig Indexes Limit FileInfo Options=IncludesNOEXEC,Indexes,Includes,MultiViews
+</Directory>
+
+<Directory "/usr/local/apache/htdocs">
+	Options Includes -Indexes -FollowSymLinks -SymLinksIfOwnerMatch 
+	AllowOverride None
+	Order deny,allow
+	Deny from all
+</Directory>
+
+RemoveHandler .cgi .pl .py .pyc .pyo .plx .ppl .perl
+```
+
+Close the file
+
+### Include HL.conf in apache
+```Shell
+nano /usr/local/apache/conf/httpd.conf
+```
+and put the following at end of file
+```ApacheConf
+Include "/usr/local/apache/conf/HL.conf
+```
 
 ## Configure Backup as per Policy
 * Incremential daily, retain 2
@@ -105,8 +138,11 @@ sh /usr/local/csf/bin/remove_apf_bfd.sh
 * monthly, retain 3
 * Off-site monthly, retain 2
 
-
+## Side Comment
 ## Don't Forget ioncube_encoder5_7.0.tar.gz
 
 
 # Update everything and restart
+
+
+# Install Monitoring Tools
