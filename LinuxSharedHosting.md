@@ -99,7 +99,10 @@ sh /usr/local/csf/bin/remove_apf_bfd.sh
 * Enable Passive mode for pureFTPd and open required ports
 
 # Apache Configureations
-## Create HL.conf file
+Before or during production, ensure handling of CGI and Symlinks is only allowed as per requirements.
+Following settings disable CGI and Symlinks globally
+
+## 1. Create HL.conf file
 ```Shell
 pico /usr/local/apache/conf/HL.conf
 ```
@@ -123,13 +126,13 @@ RemoveHandler .cgi .pl .py .pyc .pyo .plx .ppl .perl
 
 Close the file
 
-## Include HL.conf in apache
+## 2. Include HL.conf in apache
 ```Shell
 nano /usr/local/apache/conf/httpd.conf
 ```
 and put the following at end of file
 ```ApacheConf
-Include "/usr/local/apache/conf/HL.conf
+Include "/usr/local/apache/conf/HL.conf"
 ```
 
 
