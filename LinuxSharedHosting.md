@@ -134,7 +134,8 @@ and put the following at end of file
 ```ApacheConf
 Include "/usr/local/apache/conf/HL.conf"
 ```
-  
+
+* __Note:__ Ensure inclusion of HL.conf on each Apache update.
   
 ## Setup Server Backup
 Configure Backup as per Policy
