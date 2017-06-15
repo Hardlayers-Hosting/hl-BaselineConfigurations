@@ -1,9 +1,9 @@
 # linuxServerBaseConfiguration
 Base configurations for linux servers
 
-# Setup environment
+## Setup environment
 
-## Install Nano if it is not installed
+### Install Nano if it is not installed
 ```Shell
 yum install nano
 ```
@@ -12,7 +12,7 @@ yum install nano
 ln -sv /usr/bin/nano /usr/bin/pico
 ```
 
-## Configure SSH
+### Configure SSH
 Change Port / Disable Root login / ...etc.
 ```Shell
 pico /etc/ssh/sshd_config  
@@ -20,10 +20,10 @@ pico /etc/ssh/sshd_config
 /etc/init.d/sshd reload
 ```
 
-## Configure Timezones
+### Configure Timezones
 
 
-## Configure Hostname
+### Configure Hostname
 ```Shell
 pico /etc/hosts
 pico /etc/sysconfig/network
@@ -36,12 +36,12 @@ hostname #to check
 /etc/init.d/network restart
 ```
 
-## Reboot
+### Reboot
 ```Shell
 reboot
 ```
 
-# Install cPanel if required
+## Install cPanel (if required)
 ```Shell
 cd /home && curl -o latest -L https://securedownloads.cpanel.net/latest && sh latest
 # Update License 
@@ -85,7 +85,7 @@ or run
 install openVPN
 
 
-# Install CSF
+## Install CSF
 ```Shell
 cd /usr/src
 rm -fv csf.tgz
@@ -98,11 +98,11 @@ sh /usr/local/csf/bin/remove_apf_bfd.sh
 * Configure it as needed
 * Enable Passive mode for pureFTPd and open required ports
 
-# Apache Configureations
+## Apache Configureations
 Before or during production, ensure handling of CGI and Symlinks is only allowed as per requirements.
 Following settings disable CGI and Symlinks globally
 
-## 1. Create HL.conf file
+### 1. Create HL.conf file
 ```Shell
 pico /usr/local/apache/conf/HL.conf
 ```
@@ -126,7 +126,7 @@ RemoveHandler .cgi .pl .py .pyc .pyo .plx .ppl .perl
 
 Close the file
 
-## 2. Include HL.conf in apache
+### 2. Include HL.conf in apache
 ```Shell
 nano /usr/local/apache/conf/httpd.conf
 ```
@@ -136,18 +136,17 @@ Include "/usr/local/apache/conf/HL.conf"
 ```
   
   
-# Setup Server Backup
-## Configure Backup as per Policy
+## Setup Server Backup
+Configure Backup as per Policy
 * Incremential daily, retain 2
 * Weekly, retain 2
 * monthly, retain 3
 * Off-site monthly, retain 2
 
-## Side Comment
-## Don't Forget ioncube_encoder5_7.0.tar.gz
 
+## Update everything and restart
 
-# Update everything and restart
+## Install Monitoring Tools
 
-
-# Install Monitoring Tools
+### Side Comment
+* Don't Forget ioncube_encoder5_7.0.tar.gz
