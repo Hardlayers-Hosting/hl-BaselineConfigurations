@@ -21,7 +21,32 @@ pico /etc/ssh/sshd_config
 ```
 
 ### Configure Timezones
+Server Configuration
+* Basic cPanel/WHM Setup
+* Update Config
 
+### Server Contacts
+* Change System Mail Preferences and put `servers@hardlyers.net.sa`
+
+### Security
+
+* `/scripts/apachelimits`
+* `/scripts/mysqlpasswd`
+* `/scripts/securemysql -q -F -a removeanon,removelockntmp,removeremoteroot`
+
+### Security Center
+* PHP open_basedir Tweak (Enable)
+* Apache mod_userdir Tweak (Enable)
+* `/scripts/userdirctl on`
+* Compilers Tweak (Disable)
+* Shell Fork Bomb Protection (Enable)
+
+### FTP Configuration
+* pure-ftpd
+* Disable Anonymous
+
+### System Health
+* Background Process Killer
 
 ### Configure Hostname
 ```Shell
@@ -144,8 +169,33 @@ Configure Backup as per Policy
 * monthly, retain 3
 * Off-site monthly, retain 2
 
+## Stop unnecessary services
+```Shell
+service cups stop
+chkconfig cups off
+service nfslock stop
+chkconfig nfslock off
+service rpcidmapd stop
+chkconfig rpcidmapd off
+service anacron stop
+chkconfig anacron off
+service xfs stop
+chkconfig xfs off
+service bluetooth stop
+chkconfig bluetooth off
+service avahi-daemon stop
+chkconfig avahi-daemon off
+service hidd stop
+chkconfig hidd off
+service pcscd stop
+chkconfig pcscd off
+```
 
 ## Update everything and restart
+```Shell
+/scripts/upcp
+/scripts/fixeverything
+```
 
 ## Install Monitoring Tools
 
